@@ -1,2 +1,2 @@
 # portfolio
-A website that helps me describe my current activities
+A webpage that helps me describe my current activities
