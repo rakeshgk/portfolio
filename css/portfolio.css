@@ -1,0 +1,34 @@
+/* To apply jQuery action of hiding the tbody on clicking the table */
+.tbody-visibility{
+
+}
+
+/* To remove table margin */
+.remove-margin{
+    margin: 0;
+}
+
+/* Used with the glyphicon to indicate the task is complete */
+.green-tick{
+    color:green;
+}
+
+/* Used with the glyphicon to indicate that a task is incomplete */
+.red-indicator{
+    color:red;
+}
+
+/* Used with the glyphicon to indicate other tasks */
+.blue-indicator{
+    color:#3300FF;
+}
+
+/* Used with the th tag to display the main headings in a larger font */
+.th-big-font{
+    font-size: 20px;
+}
+
+/* Used with the strong tag to display the subheadings in a slightly larger font */
+.strong-big-font{
+    font-size: 18px;
+}

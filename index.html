@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title> RGK's Portfolio </title>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        type="text/css"/>
+    <script
+        type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+    <script
+        type="text/javascript"
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+    </script>
+    <script
+        type="text/javascript"
+        src="./js/portfolio.js">
+    </script>
+    <link
+        rel="stylesheet"
+        href="./css/portfolio.css"
+        type="text/css"/>
+</head>
+<body>
+    <!-- Bootstrap compliant Navigation Bar -->
+    <nav class="navbar navbar-default">
+        <!-- The navigation bar is housed under the fluid container. Best container class for navbars -->
+        <div class="container-fluid">
+            <!-- For the mobile version. Show a button that displays the navbar on clicking it -->
+            <div class="navbar-header">
+                <button type="button"
+                        class="btn btn-default navbar-toggle collapsed"
+                        data-toggle="collapse"
+                        data-target="#main_navbar"
+                        aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
+            </div>
+            <!-- For the desktop version show the entire navbar -->
+            <div class="collapse navbar-collapse" id="main_navbar">
+                <!-- Display the unordered vertical list in horizontal fashion -->
+                <ul class="nav navbar-nav">
+                    <li class="active"> <a href="index.html">Home</a> </li>
+                    <li> <a href="education.html">Education</a> </li>
+                    <li> <a href="resume.html">Resume</a> </li>
+                    <li> <a href="contact.html">Contact Me</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bootstrap center alignment class for the heading -->
+    <h1 class="text-center"> RAKESH GANAPATHI KARANTH </h1>
+
+    <!-- The ABOUT ME content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <img class="img-responsive img-thumbnail" src="http://gravatar.com/avatar/7d79d9d01b9c35c87954929c485e20a7?s=200" alt="RGK's Gravatar"/>
+            </div>
+            <div class="col-md-10">
+                <p class="text-justify">
+                    I am a Master's student studying Computer Science and Engineering at <a href="http://cse.ucsd.edu/" target="_blank"> University of California, San Diego. </a> Before joining UCSD, I worked for 3 years in the Media Analytics Team at <a href="http://www.akamai.com" target="_blank"> Akamai Technologies </a> Bangalore. I also have a Bachelor's degree in Information Science and Engineering from <a href="http://www.bmsce.ac.in" target="_blank"> B M S College of Engineering, </a> Bangalore.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
