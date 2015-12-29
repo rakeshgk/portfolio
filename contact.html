@@ -2,7 +2,6 @@
 <html lang="en">
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <head>
-    <title> RGK's Portfolio </title>
     <script
         type="text/javascript"
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
@@ -10,6 +9,10 @@
     <script
         type="text/javascript"
         src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+    </script>
+    <script
+        type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/js/bootcards.min.js">
     </script>
     <script
         type="text/javascript"
@@ -26,6 +29,10 @@
     <link
         rel="stylesheet"
         href="./css/portfolio.css"
+        type="text/css"/>
+    <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css"
         type="text/css"/>
 </head>
 
@@ -63,6 +70,20 @@
                 };
                 var template = Handlebars.compile(data);
                 $("#navbar-location").html(template(context));
+
+                // Check if any page is already highlighted. Remove the highlighting first
+                $("li").each(function(index){
+                    if($(this).hasClass("active")){
+                        $(this).removeClass("active");
+                    }
+                });
+                // Highlight the currently selected page
+                $("li").each(function(index){
+                    var curr_page = $(this).find("a").text();
+                    if(curr_page == "Contact Me"){
+                        $(this).addClass("active");
+                    }
+                });
             }
         });
     })(navbar_template);

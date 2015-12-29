@@ -13,6 +13,10 @@
     </script>
     <script
         type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/js/bootcards.min.js">
+    </script>
+    <script
+        type="text/javascript"
         src="./js/portfolio.js">
     </script>
     <script
@@ -26,6 +30,10 @@
     <link
         rel="stylesheet"
         href="./css/portfolio.css"
+        type="text/css"/>
+    <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css"
         type="text/css"/>
 </head>
 
@@ -63,6 +71,20 @@
                 };
                 var template = Handlebars.compile(data);
                 $("#navbar-location").html(template(context));
+
+                // Check if any page is already highlighted. Remove the highlighting first
+                $("li").each(function(index){
+                    if($(this).hasClass("active")){
+                        $(this).removeClass("active");
+                    }
+                });
+                // Highlight the currently selected page
+                $("li").each(function(index){
+                    var curr_page = $(this).find("a").text();
+                    if(curr_page == "Resume"){
+                        $(this).addClass("active");
+                    }
+                });
             }
         });
     })(navbar_template);

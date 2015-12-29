@@ -13,6 +13,10 @@
     </script>
     <script
         type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/js/bootcards.min.js">
+    </script>
+    <script
+        type="text/javascript"
         src="./js/portfolio.js">
     </script>
     <script
@@ -27,6 +31,10 @@
         rel="stylesheet"
         href="./css/portfolio.css"
         type="text/css"/>
+    <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css"
+        type="text/css"/>
 </head>
 
 <body>
@@ -34,8 +42,12 @@
     <div id="navbar-location">
     </div>
 
-    <!-- Place the main heading here-->
+    <!-- Place the main heading here -->
     <div id="main-heading">
+    </div>
+
+    <!-- Place to put my summary -->
+    <div id="profile-summary">
     </div>
 </body>
 
@@ -63,6 +75,20 @@
                 };
                 var template = Handlebars.compile(data);
                 $("#navbar-location").html(template(context));
+
+                // Check if any page is already highlighted. Remove the highlighting first
+                $("li").each(function(index){
+                    if($(this).hasClass("active")){
+                        $(this).removeClass("active");
+                    }
+                });
+                // Highlight the currently selected page
+                $("li").each(function(index){
+                    var curr_page = $(this).find("a").text();
+                    if(curr_page == "Home"){
+                        $(this).addClass("active");
+                    }
+                });
             }
         });
     })(navbar_template);
@@ -78,13 +104,39 @@
             dataType: "text",
             success: function(data){
                 var context = {
-                    "Heading": "Rakesh Ganapathi Karanth"
+                    "Heading": "About Me"
                 };
                 var template = Handlebars.compile(data);
                 $("#main-heading").html(template(context));
             }
         });
     })(main_heading);
+
+    // Compile the profile summary HTML code from the template and attach it to
+    // the div on page load. Use the concept of IIFE again
+    var profile_summary = "./html_templates/about_me.hbs";
+    (function(path){
+        // Do an AJAX request to get the required page. Don't forget to include
+        // the datatype attribute while performing the AJAX request
+        $.ajax({
+            url: path,
+            dataType: "text",
+            success: function(data){
+                var context = {
+                    "RgkImageSrc": "http://gravatar.com/avatar/7d79d9d01b9c35c87954929c485e20a7?s=240",
+                    "RgkImageAlt": "RGK's Gravatar",
+                    "CardSummary": "Summary",
+                    "Name": "Full Name",
+                    "FullName": "Rakesh Ganapathi Karanth",
+                    "PronounceName": "First Name Pronounciation",
+                    "FirstNamePronounciation": "Raa-kay-sh",
+                    "ProfileSummary": "I am a first year grad student studying Computer Science and Engineering at the University of California, San Diego. Before joining UCSD I worked in the Media Analytics Team at Akamai Technologies Inc. for 3 years. I have a Bachelor's degree in Information Science and Engineering from B.M.S College of Engineering, Bangalore."
+                };
+                var template = Handlebars.compile(data);
+                $("#profile-summary").html(template(context));
+            }
+        });
+    })(profile_summary);
 
 </script>
 
