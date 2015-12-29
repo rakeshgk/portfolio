@@ -5,3 +5,20 @@
         margin: 0 auto;
     }
 }
+
+.colorless-anchor{
+    color: black;
+}
+
+body{
+    background-color: white !important;
+    padding: 0 !important;
+}
+
+.no-height-text{
+    height: 40px !important;
+}
+
+.no-height-fa{
+    height: 60px !important;
+}

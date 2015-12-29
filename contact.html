@@ -12,7 +12,7 @@
     </script>
     <script
         type="text/javascript"
-        src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/js/bootcards.min.js">
+        src="http://cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/js/bootcards.min.js">
     </script>
     <script
         type="text/javascript"
@@ -32,7 +32,11 @@
         type="text/css"/>
     <link
         rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css"
+        href="http://cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css"
+        type="text/css"/>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
         type="text/css"/>
 </head>
 
@@ -43,6 +47,10 @@
 
     <!-- Place the main heading here-->
     <div id="main-heading">
+    </div>
+
+    <!-- Place the contact details icon here -->
+    <div id="contact-details">
     </div>
 </body>
 
@@ -106,6 +114,22 @@
             }
         });
     })(main_heading);
+
+    // Compile the contact details page from the template and attach it to the 
+    // div on page load. Use the concept of IIFE again
+    var contact_details = "./html_templates/contact_me.hbs";
+    (function (path){
+        // Do an AJAX request to get the required page. Don't forget to include
+        // the datatype attribute while performing the AJAX request
+        $.ajax({
+            url: path,
+            dataType: "text",
+            success: function(data){
+                var template = Handlebars.compile(data);
+                $("#contact-details").html(template());
+            }
+        });
+    })(contact_details);
     
 </script>
 
