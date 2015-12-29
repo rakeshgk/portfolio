@@ -43,12 +43,16 @@
 
 <body>
     <!-- Place the main navbar of the site here -->
-    <div id="container">
-        <div id="navbar-location">
+    <div id="navbar-location">
+    </div>
+
+    <div class="container">
+        <!-- Place the main heading here -->
+        <div id="main-heading">
         </div>
 
-        <!-- Place the main heading here-->
-        <div id="main-heading">
+        <!-- Place the resume card -->
+        <div id="resume-card">
         </div>
     </div>
 </body>
@@ -113,6 +117,31 @@
             }
         });
     })(main_heading);
+
+    // Compile the resume HTML code from the template and attach it to the div
+    // on page load. Use the concept of IIFE again
+    var resume_card = "./html_templates/display_resume.hbs";
+    (function (path){
+        // Do an AJAX request to get the required page. Don't forget to include
+        // the datatype attribute while performing the AJAX request
+        $.ajax({
+            url: path,
+            dataType: "text",
+            success: function(data){
+                var context = {
+                    "CardHeading": "My Resume",
+                    "PdfLocation": "./resume/RakeshGanapathiKaranth.pdf",
+                    "FileName": "Rakesh Ganapathi Karanth.pdf",
+                    "Type": "PDF",
+                    "Size": "252Kb",
+                    "Comments": "Uploaded on 28th December 2015",
+                    "Download": "Download",
+                };
+                var template = Handlebars.compile(data);
+                $("#resume-card").html(template(context));
+            }
+        });
+    })(resume_card);
 
 </script>
 

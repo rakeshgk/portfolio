@@ -1,0 +1,31 @@
+<div class="panel panel-default bootcards-file">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{CardHeading}}</h3>
+    </div>
+    <div class="list-group">
+        <div class="list-group-item">
+            <a href="{{PdfLocation}}">
+                <i class="icon-file-pdf"></i>
+            </a>
+            <h4 class="list-group-item-heading">
+                <a href="{{PdfLocation}}">
+                    {{FileName}}
+                </a>
+            </h4>
+            <p class="list-group-item-text"><strong>{{Type}}</strong></p>
+            <p class="list-group-item-text"><strong>{{Size}}</strong></p>
+        </div>
+        <div class="list-group-item">
+            <p class="list-group-item-text"><strong>{{Comments}}</strong></p>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <a href="{{PdfLocation}}" download="{{FileName}}">
+                    {{Download}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
