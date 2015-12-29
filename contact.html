@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <title> RGK's Portfolio </title>
-    <link
-        rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        type="text/css"/>
     <script
         type="text/javascript"
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
@@ -19,39 +15,49 @@
         type="text/javascript"
         src="./js/portfolio.js">
     </script>
+    <script
+        type="text/javascript"
+        src="./js_lib/handlebars-v4.0.5.js">
+    </script>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        type="text/css"/>
     <link
         rel="stylesheet"
         href="./css/portfolio.css"
         type="text/css"/>
 </head>
-<body>
-    <!-- Bootstrap compliant Navigation Bar -->
-    <nav class="navbar navbar-default">
-        <!-- The navigation bar is housed under the fluid container. Best container class for navbars -->
-        <div class="container-fluid">
-            <!-- For the mobile version. Show a button that displays the navbar on clicking it -->
-            <div class="navbar-header">
-                <button type="button"
-                        class="btn btn-default navbar-toggle collapsed"
-                        data-toggle="collapse"
-                        data-target="#main_navbar"
-                        aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span>
-                </button>
-            </div>
-            <!-- For the desktop version show the entire navbar -->
-            <div class="collapse navbar-collapse" id="main_navbar">
-                <!-- Display the unordered vertical list in horizontal fashion -->
-                <ul class="nav navbar-nav">
-                    <li> <a href="index.html">Home</a> </li>
-                    <li> <a href="education.html">Education</a> </li>
-                    <li> <a href="resume.html">Resume</a> </li>
-                    <li class="active"> <a href="contact.html">Contact Me</a> </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Bootstrap center alignment class for the heading -->
-    <h1 class="text-center"> Contact Details </h1>
+<body>
+    <!-- Place the main navbar of the site here -->
+    <div id="navbar-location">
+    </div>
 </body>
+
+<script type="text/javascript">
+    // Compile the navbar HTML code from the template and attach it to the
+    // div on page load. This is done automatically through the JS design
+    // pattern IIFE (Immediately invoked function expression)
+    var navbar_template = "./html_templates/navbar_template.hbs";
+    (function (path){
+        // Do an AJAX request to get the required page. Don't forget to include
+        // the datatype attribute while performing the AJAX request
+        $.ajax({
+            url: path,
+            dataType: "text",
+            success: function(data){
+                var context = {
+                    "Home": "Home",
+                    "Education": "Education",
+                    "Resume": "Resume",
+                    "ContactMe": "Contact Me"
+                };
+                var template = Handlebars.compile(data);
+                $("#navbar-location").html(template(context));
+            }
+        });
+    })(navbar_template);
+</script>
+
 </html>

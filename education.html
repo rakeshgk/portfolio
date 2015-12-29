@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <title> RGK's Portfolio </title>
-    <link
-        rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        type="text/css"/>
     <script
         type="text/javascript"
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
@@ -19,223 +15,49 @@
         type="text/javascript"
         src="./js/portfolio.js">
     </script>
+    <script
+        type="text/javascript"
+        src="./js_lib/handlebars-v4.0.5.js">
+    </script>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        type="text/css"/>
     <link
         rel="stylesheet"
         href="./css/portfolio.css"
         type="text/css"/>
 </head>
+
 <body>
-    <!-- Bootstrap compliant Navigation Bar -->
-    <nav class="navbar navbar-default">
-        <!-- The navigation bar is housed under the fluid container. Best container class for navbars -->
-        <div class="container-fluid">
-            <!-- For the mobile version. Show a button that displays the navbar on clicking it -->
-            <div class="navbar-header">
-                <button type="button"
-                        class="btn btn-default navbar-toggle collapsed"
-                        data-toggle="collapse"
-                        data-target="#main_navbar"
-                        aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span>
-                </button>
-            </div>
-            <!-- For the desktop version show the entire navbar -->
-            <div class="collapse navbar-collapse" id="main_navbar">
-                <!-- Display the unordered vertical list in horizontal fashion -->
-                <ul class="nav navbar-nav">
-                    <li> <a href="index.html">Home</a> </li>
-                    <li class="active"> <a href="education.html">Education</a> </li>
-                    <li> <a href="resume.html">Resume</a> </li>
-                    <li> <a href="contact.html">Contact Me</a> </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Bootstrap center alignment class for the heading -->
-    <h1 class="text-center"> Education </h1>
-
-    <div class="container">
-        <div class="table-responsive">
-            <table class="table table-condensed remove-margin">
-                <thead>
-                    <tr>
-                        <th class="text-muted th-big-font"> <span class="glyphicon glyphicon-education blue-indicator"> </span> GPA </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> UCSD -<strong> 3.9 out of 4.0 </strong> </td> 
-                    </tr>
-                    <tr>
-                        <td> BMSCE -<strong> 9.51 out of 10 </strong> </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-condensed tbody-visibility remove-margin">
-                <thead>
-                    <tr>
-                        <th class="text-muted th-big-font"> <span class="glyphicon glyphicon-play red-indicator"> </span> UCSD Courses </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> Fall 2015 </strong>
-                            <ul>
-                                <li> CSE 202 - Algorithm Design and Analysis (A-) </li>
-                                <li> CSE 210 - Principles of Software Engineering (A) </li>
-                                <li> CSE 222A - Computer Communication Networks (A) </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-play red-indicator"> </span> Spring 2016 </strong>
-                            <ul>
-                                <li> CSE 221 - Operating Systems </li>
-                                <li> CSE 230 - Principles of Programming Languages </li>
-                                <li> ENG 202 - Enterprise Dynamics </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-condensed tbody-visibility remove-margin">
-                <thead>
-                    <tr>
-                        <th class="text-muted th-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> BMSCE Courses </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> Semester - 1 </strong>
-                            <ul>
-                                <li> Engineering Mathematics - 1 (S) </li>
-                                <li> Engineering Chemistry (A) </li>
-                                <li> Elements of Electronis Engineering (A) </li>
-                                <li> Computer Concepts and C Programming (A) </li>
-                                <li> Computer Aided Engineering Drawing (A) </li>
-                                <li> C Programming Laboratory (S) </li>
-                                <li> Engineering Chemistry Laboratory (S) </li>
-                                <li> Personality Development and Communication (A) </li>
-                                <li> Functional English (PP) </li>
-                                <li> Environmental Studies (PP) </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> Semester - 2 </strong>
-                            <ul>
-                                <li> Engineering Mathematics - 2 (S)</li>
-                                <li> Engineering Physics (S) </li>
-                                <li> Basic Electrical Engineering (S) </li>
-                                <li> Elements of Mechanical Engineering (A) </li>
-                                <li> Elements of Civil Engineering (A) </li>
-                                <li> Workshop Practice (B) </li>
-                                <li> Engineering Physics Laboratory (S) </li>
-                                <li> Fundamentals in Management (A) </li>
-                                <li> Constitution of India and Professional Ethics (PP) </li>
-                                <li> Kannada Language (PP) </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> Semester - 3 </strong>
-                            <ul>
-                                <li> Engineering Mathematics - 3 (A) </li>
-                                <li> Computer Organization and Architecture (A) </li>
-                                <li> Data Structures (S) </li>
-                                <li> Logic Design (S) </li>
-                                <li> Microprocessor (S) </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> Semester - 4 </strong>
-                            <ul>
-                                <li> Engineering Mathematics - 4 (S) </li>
-                                <li> Analysis and Design of Algorithms (A) </li>
-                                <li> Object Oriented Programming with C++ (S) </li>
-                                <li> Theoretical Foundation of Computation (A) </li>
-                                <li> Unix Programming (S) </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> Semester - 5 </strong>
-                            <ul>
-                                <li> Operating Systems (S) </li>
-                                <li> Data Communication (A) </li>
-                                <li> Database Management Systems (A) </li>
-                                <li> Java Programming (A) </li>
-                                <li> Unix System Programming (A) </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> Semester - 6 </strong>
-                            <ul>
-                                <li> Web Programming (S) </li>
-                                <li> Software Engineering (A) </li>
-                                <li> Object Oriented Modeling and Desing (A) </li>
-                                <li> Computer Networks (A) </li>
-                                <li> Probability, Statistics and Queuing (A) </li>
-                                <li> Cloud Computing (S) </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> Semester - 7 </strong>
-                            <ul>
-                                <li> C# and .NET (S) </li>
-                                <li> Cryptography and Network Security (A) </li>
-                                <li> Mobile Application Development (A) </li>
-                                <li> Entrepreneurship and Management (S) </li>
-                                <li> Graph Theory (S) </li>
-                                <li> Project Phase - 1 (S) </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong class="strong-big-font"> <span class="glyphicon glyphicon-ok green-tick"> </span> Semester - 8 </strong>
-                            <ul>
-                                <li> Fuzzy Logic (S) </li>
-                                <li> Indian Cyber Law (S) </li>
-                                <li> Operations Research (A) </li>
-                                <li> Project Phase - 2 (S) </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-condensed tbody-visibility remove-margin">
-                <thead>
-                    <tr>
-                        <th class="text-muted th-big-font"> <span class="glyphicon glyphicon-briefcase blue-indicator"> </span> Projects </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tbody>
-            </table>
-        </div>
+    <!-- Place the main navbar of the site here -->
+    <div id="navbar-location">
     </div>
 </body>
+
+<script type="text/javascript">
+    // Compile the navbar HTML code from the template and attach it to the
+    // div on page load. This is done automatically through the JS design
+    // pattern IIFE (Immediately invoked function expression)
+    var navbar_template = "./html_templates/navbar_template.hbs";
+    (function (path){
+        // Do an AJAX request to get the required page. Don't forget to include
+        // the datatype attribute while performing the AJAX request
+        $.ajax({
+            url: path,
+            dataType: "text",
+            success: function(data){
+                var context = {
+                    "Home": "Home",
+                    "Education": "Education",
+                    "Resume": "Resume",
+                    "ContactMe": "Contact Me"
+                };
+                var template = Handlebars.compile(data);
+                $("#navbar-location").html(template(context));
+            }
+        });
+    })(navbar_template);
+</script>
+
 </html>
