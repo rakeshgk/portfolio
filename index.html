@@ -33,6 +33,10 @@
     <!-- Place the main navbar of the site here -->
     <div id="navbar-location">
     </div>
+
+    <!-- Place the main heading here-->
+    <div id="main-heading">
+    </div>
 </body>
 
 <script type="text/javascript">
@@ -49,15 +53,39 @@
             success: function(data){
                 var context = {
                     "Home": "Home",
+                    "IndexHTML": "index.html",
                     "Education": "Education",
+                    "EducationHTML": "education.html",
                     "Resume": "Resume",
-                    "ContactMe": "Contact Me"
+                    "ResumeHTML": "resume.html",
+                    "ContactMe": "Contact Me",
+                    "ContactHTML": "contact.html"
                 };
                 var template = Handlebars.compile(data);
                 $("#navbar-location").html(template(context));
             }
         });
     })(navbar_template);
+
+    // Compile the main heading HTML code from the template and attach it to
+    // the div on page load. Use the concept of IIFE again
+    var main_heading = "./html_templates/main_heading.hbs";
+    (function (path){
+        // Do an AJAX request to get the required page. Don't forget to include
+        // the datatype attribute while performing the AJAX request
+        $.ajax({
+            url: path,
+            dataType: "text",
+            success: function(data){
+                var context = {
+                    "Heading": "Rakesh Ganapathi Karanth"
+                };
+                var template = Handlebars.compile(data);
+                $("#main-heading").html(template(context));
+            }
+        });
+    })(main_heading);
+
 </script>
 
 </html>
