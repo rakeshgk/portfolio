@@ -47,8 +47,12 @@
     </div>
 
     <div class="container">
-        <!-- Place the main heading here-->
+        <!-- Place the main heading here -->
         <div id="main-heading">
+        </div>
+
+        <!-- Place education details here -->
+        <div id="education-details">
         </div>
     </div>
 </body>
@@ -114,6 +118,36 @@
         });
     })(main_heading);
 
+    // Compile the education details HTML code from the template and attach it to
+    // the div on page load. Use the concept of IIFE again
+    var education_details = "./html_templates/education_details.hbs";
+    (function (path){
+        $.ajax({
+            // Do an AJAX request to get the required page. Don't forget to include
+            // the datatype attribute while performing the AJAX request
+            url: path,
+            dataType: "text",
+            success: function(data){
+                var context = {
+                    "GradTranscripts": "Masters in Computer Science and Engineering - 3.9 / 4.0",
+                    "GradPdfLocation": "./transcripts/UCSD.pdf",
+                    "GradFileName": "UCSD.pdf",
+                    "GradType": "PDF",
+                    "GradSize": "192Kb",
+                    "GradComments": "Uploaded on 28th December 2015",
+                    "Download": "Download",
+                    "UnderGradTranscripts": "Bachelors in Information Science and Engineering - 9.51 / 10.0",
+                    "UnderGradPdfLocation": "./transcripts/BMSCE.pdf",
+                    "UnderGradFileName": "BMSCE.pdf",
+                    "UnderGradType": "PDF",
+                    "UnderGradSize": "204Kb",
+                    "UnderGradComments": "Uploaded on 28th December 2015"
+                };
+                var template = Handlebars.compile(data);
+                $("#education-details").html(template(context));
+            }
+        });
+    })(education_details);
 </script>
 
 </html>
