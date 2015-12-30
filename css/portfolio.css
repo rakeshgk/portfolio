@@ -11,8 +11,8 @@
 }
 
 body{
+    padding-top: 45px !important;
     background-color: white !important;
-    padding: 0 !important;
 }
 
 .no-height-text{
